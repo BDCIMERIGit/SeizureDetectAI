@@ -168,7 +168,7 @@ def predict_from_model(model, input_df):
 
         return pred, prob_class1, prob_class0
     except Exception as e:
-        st.error(f"Kesalahan prediksi: {e}")
+        #st.error(f"Kesalahan prediksi: {e}")
         return None, None, None
 
 # -----------------------------------------------------
@@ -356,4 +356,5 @@ elif st.session_state['page'] == 'history':
         go_to('form')
 
 st.markdown("---")
-st.caption("Developed with ❤️ by Dr. Rafli & GPT-5 | Epilepsy Prediction Model (XGBoost)")
+st.caption("Developed with ❤️ by Dr. Rafli, AISeeyou, & BDC IMERI | Epilepsy Prediction Model (XGBoost)")
+
