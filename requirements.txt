@@ -1,11 +1,7 @@
 streamlit
 pandas
 numpy
-pickle
-os
-io
 xgboost
 scikit-learn
 matplotlib
 seaborn
-pickle-mixin
