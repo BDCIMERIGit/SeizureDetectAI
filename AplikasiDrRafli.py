@@ -324,12 +324,20 @@ elif st.session_state['page'] == 'form':
                 st.write(f"Prob(Terkontrol) = {prob_pos*100:.2f}%")
                 if prob_neg is not None:
                     st.write(f"Prob(Tidak Terkontrol) = {prob_neg*100:.2f}%")
-            if prediction == 1:
-                st.success(f"✅ Pasien **TERKONTROL**")
-            elif prediction == 0:
-                st.error(f"⚠️ Pasien **TIDAK TERKONTROL**")
+            # if prediction == 1:
+            #     st.success(f"✅ Pasien **TERKONTROL**")
+            # elif prediction == 0:
+            #     st.error(f"⚠️ Pasien **TIDAK TERKONTROL**")
+            # else:
+            #     st.info(f"Hasil prediksi: {prediction}")
+            # Normalisasi hasil prediksi agar konsisten
+            if str(prediction).lower() in ['1', 'terkontrol']:
+                st.success("✅ Pasien **TERKONTROL**")
+            elif str(prediction).lower() in ['0', 'tidak terkontrol']:
+                st.error("⚠️ Pasien **TIDAK TERKONTROL**")
             else:
-                st.info(f"Hasil prediksi: {prediction}")
+                st.info(f"Hasil prediksi tidak dikenali: {prediction}")
+
 
             st.write("### 🧾 Data Pasien:")
             st.dataframe(pd.DataFrame([input_data]))
@@ -357,4 +365,5 @@ elif st.session_state['page'] == 'history':
 
 st.markdown("---")
 st.caption("Developed with ❤️ by Dr. Rafli, AISeeyou, & BDC IMERI | Epilepsy Prediction Model (XGBoost)")
+
 
